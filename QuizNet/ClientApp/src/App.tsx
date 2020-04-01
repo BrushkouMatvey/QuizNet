@@ -4,13 +4,24 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import Counter from './components/Counter';
 import FetchData from './components/FetchData';
+import StartPage from './components/Pages/StartPage/StartPage';
+import GameWithFriendsPage from './components/Pages/GameWithFriendsPage/GameWithFriendsPage';
+import QuizPage from './components/Pages/QuizPage/QuizPage';
+import QuizTopicsPage from './components/Pages/QuizTopicsPage/QuizTopicsPage';
+import s from './custom.module.css'
 
-import './custom.css'
 
-export default () => (
-    <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
-    </Layout>
-);
+const App = () => {
+    return (
+        <div className = {s.app}>
+            <Layout>
+                <Route exact path='/' component={StartPage} />
+                <Route path='/withFriends' component={GameWithFriendsPage} />
+                <Route path='/quiz' component={QuizPage} />
+                <Route path='/QuizTopics' component={QuizTopicsPage} />     
+            </Layout>
+        </div>
+    );
+};
+
+export default App;
