@@ -1,1 +1,32 @@
-﻿
+﻿.quizPage
+{
+    font-size:20px;
+}
+
+.question{
+    font-size: 30px;
+    margin:30px;
+}
+
+.form{
+    margin:20px;
+}
+
+.nextButton {
+    background-color: #1ED760;
+    border: none;
+    border-radius: 20px;
+    width: 10%;
+    height: 50px;
+    font-size: 24px;
+}
+
+.nextButton:hover{
+    color: #ffffff;
+}
+.nextButton:focus {
+    outline: none;
+}
+
+
+    

@@ -9,7 +9,7 @@ using QuizNet.Services;
 
 namespace QuizNet.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //unnecessary
     [ApiController]
     public class QuestionsController : ControllerBase
     {
@@ -26,16 +26,30 @@ namespace QuizNet.Controllers
             return _questionService.GetCollectionNames();
         }
 
-        [HttpGet("science")]
-
-        public ActionResult<Question> GetQuestionScience()
-        {
-            return _questionService.GetQuestion("science");
-        }
         
+        [HttpGet("astronomy")]
+        public ActionResult<Question> GetQuestionAstronomy()
+        {
+            return _questionService.GetQuestion("astronomy");
+        }
+
+        [HttpGet("flora")]
+        public ActionResult<Question> GetQuestionFlora()
+        {
+            return _questionService.GetQuestion("flora");
+        }
+
+        [HttpGet("geography")]
+        public ActionResult<Question> GetQuestionGeography()
+        {
+            return _questionService.GetQuestion("geography");
+        }
+
         [HttpGet("history")]
+
         public ActionResult<Question> GetQuestionHistory()
         {
+
             return _questionService.GetQuestion("history");
         }
 
@@ -43,6 +57,30 @@ namespace QuizNet.Controllers
         public ActionResult<Question> GetQuestionLiterature()
         {
             return _questionService.GetQuestion("literature");
+        }
+
+        [HttpGet("music")]
+        public ActionResult<Question> GetQuestionMusic()
+        {
+            return _questionService.GetQuestion("music");
+        }
+
+        [HttpGet("science")]
+        public ActionResult<Question> GetQuestionScience()
+        {
+            return _questionService.GetQuestion("science");
+        }
+
+        [HttpGet("sport")]
+        public ActionResult<Question> GetQuestionSport()
+        {
+            return _questionService.GetQuestion("sport");
+        }
+
+        [HttpGet("cooking")]
+        public ActionResult<Question> GetQuestionCooking()
+        {
+            return _questionService.GetQuestion("cooking");
         }
 
         //[HttpGet("{id:length(24)}", Name = "GetQuestion")]
