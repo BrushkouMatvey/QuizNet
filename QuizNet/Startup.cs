@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+
+using QuizNet.Models;
+using QuizNet.Services;
 
 namespace QuizNet
 {
@@ -28,6 +32,18 @@ namespace QuizNet
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            //Database configuration
+            services.Configure<QuestionsDatabaseSettings>(
+                Configuration.GetSection(nameof(QuestionsDatabaseSettings)));
+
+            services.AddSingleton<IQuestionsDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<QuestionsDatabaseSettings>>().Value);
+
+            services.AddSingleton<QuestionService>();
+
+            //MAYBE YOU NEED TO ADD THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            //services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

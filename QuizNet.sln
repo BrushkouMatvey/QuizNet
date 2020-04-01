@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizNet", "QuizNet\QuizNet.csproj", "{065F96EB-8913-42DF-A9AD-9647A4BD8304}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuizNet", "QuizNet\QuizNet.csproj", "{BDFBBC8C-E578-4FC6-AD97-C5DD35012F3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{065F96EB-8913-42DF-A9AD-9647A4BD8304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{065F96EB-8913-42DF-A9AD-9647A4BD8304}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{065F96EB-8913-42DF-A9AD-9647A4BD8304}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{065F96EB-8913-42DF-A9AD-9647A4BD8304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFBBC8C-E578-4FC6-AD97-C5DD35012F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFBBC8C-E578-4FC6-AD97-C5DD35012F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFBBC8C-E578-4FC6-AD97-C5DD35012F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFBBC8C-E578-4FC6-AD97-C5DD35012F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {20B94B3A-71B5-439E-9C3C-B0B1386A10C4}
+		SolutionGuid = {F66BD851-63E6-4C9E-B780-665F129EA504}
 	EndGlobalSection
 EndGlobal
