@@ -3,4 +3,14 @@
     background: linear-gradient(#373B44 , #4286f4);
     font-size: 30px;
     color: azure;
+    border: none;
+    border-radius: 30px;
+}
+
+.item a{
+    text-decoration: none;
+}
+
+.item a:hover{
+    color: rgb(203, 221, 203);
 }

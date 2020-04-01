@@ -25,7 +25,16 @@ class QuizTopicsPage extends React.Component {
     }
 
     render() {
-        let topics = this.state.topics.map(t => <TopicItem text={t} />)
+        let tes = 'История';
+        let topics = this.state.topics.map(t => <TopicItem text={t} link={`${this.props.apiUrl}/${t}`}/>)
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
+        topics.push(<TopicItem text ="История" link = {`${this.props.apiUrl}/${tes}`}/>);
         return <div className={s.quizTopicsPage}>
             {
                 topics
@@ -34,26 +43,5 @@ class QuizTopicsPage extends React.Component {
     }
 }
 
-
-
-
-// const QuizTopicsPage = () => {
-//     return (
-//         <div className={s.quizTopicsPage}>
-//             <TopicItem text ="Наука"/>
-//             <TopicItem text ="Литература"/>
-//             <TopicItem text ="История"/>
-//             <TopicItem text ="Личности"/>
-//             <TopicItem text ="Флаги"/>
-//             <TopicItem text ="Мультфильмы"/>
-//             <TopicItem text ="Искусство"/>
-//             <TopicItem text ="Спорт"/>
-//             <TopicItem text ="Космос"/>
-//             <TopicItem text ="Кино"/>
-//             <TopicItem text ="Музыка"/>
-//             <TopicItem text ="Искусство"/>
-//         </div>
-//     )
-// }
 
 export default QuizTopicsPage;

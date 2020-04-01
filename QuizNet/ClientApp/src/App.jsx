@@ -6,7 +6,7 @@ import Counter from './components/Counter';
 import FetchData from './components/FetchData';
 import StartPage from './components/Pages/StartPage/StartPage';
 import GameWithFriendsPage from './components/Pages/GameWithFriendsPage/GameWithFriendsPage';
-import QuizPage from './components/Pages/QuizPage/QuizPage';
+import QuizPage from './components/Pages/QuizPage/QuizPage.jsx';
 import QuizTopicsPage from './components/Pages/QuizTopicsPage/QuizTopicsPage';
 import s from './custom.module.css'
 
@@ -16,8 +16,8 @@ const App = () => {
             <Layout>
                 <Route exact path='/' component={StartPage} />
                 <Route path='/withFriends' component={GameWithFriendsPage} />
-                <Route path='/quiz' component={QuizPage} />
-                <Route path='/api/questions' render={() => <QuizTopicsPage apiUrl="/api/questions" />} />     
+                <Route exact path='/api/questions/:name' component={QuizPage} />
+                <Route exact path='/api/questions' render={() => <QuizTopicsPage apiUrl="/api/questions" />} />     
             </Layout>
         </div>
     );
