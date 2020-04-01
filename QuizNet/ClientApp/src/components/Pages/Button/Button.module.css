@@ -1,0 +1,17 @@
+.button{
+    background-color: rgb(28, 197, 87);
+    border-radius: 10px;
+    border:none;
+    color: white;
+    padding: 15px 32px;
+    display: inline-block;
+    margin:5px;
+    width: 40%;
+    font-size:30px;
+}
+
+.button:hover{
+    font-size: 31px;
+    background-color:#1ED760;
+    text-decoration: none;
+}

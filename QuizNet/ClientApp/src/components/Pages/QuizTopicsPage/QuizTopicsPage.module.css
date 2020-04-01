@@ -1,0 +1,12 @@
+﻿.quizTopicsPage
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows:repeat(3, 180px);
+    grid-gap: 20px;
+}
+.quizTopicsPage div{
+    background-color: #1ED760;
+    border-radius: 10px;
+    text-align: center;
+}
