@@ -5,7 +5,7 @@ function StartPage() {
     return (
         <div className = {s.startPage}>
             <div>
-                <Button text="Single game" link = "/quizTopics" style="default" />
+                <Button text="Single game" link = "/api/questions" style="default" />
             </div>
             <div>
                 <Button text="Game with friends" link = "/withFriends" style="default" />
