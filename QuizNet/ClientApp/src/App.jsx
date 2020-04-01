@@ -10,7 +10,6 @@ import QuizPage from './components/Pages/QuizPage/QuizPage';
 import QuizTopicsPage from './components/Pages/QuizTopicsPage/QuizTopicsPage';
 import s from './custom.module.css'
 
-
 const App = () => {
     return (
         <div className = {s.app}>
@@ -18,7 +17,7 @@ const App = () => {
                 <Route exact path='/' component={StartPage} />
                 <Route path='/withFriends' component={GameWithFriendsPage} />
                 <Route path='/quiz' component={QuizPage} />
-                <Route path='/QuizTopics' component={QuizTopicsPage} />     
+                <Route path='/api/questions' render={() => <QuizTopicsPage apiUrl="/api/questions" />} />     
             </Layout>
         </div>
     );
