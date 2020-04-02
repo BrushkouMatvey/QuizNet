@@ -11,20 +11,21 @@ class QuizPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: "",
             questionName: "",
             answers: [],
-            rightAnswer: ""
+            rightAnswer: "",
+            color: ''
         };
+        this.loadData = this.loadData.bind(this);
 
     }
 
     loadData() {
         var xhr = new XMLHttpRequest();
-        xhr.open("get", this.props.apiUrl, true);
+        xhr.open("get", this.props.match.url, true);
         xhr.onload = (() => {
             var data = JSON.parse(xhr.responseText);
-            this.setState({ id: data.id, questionName: data.questionName, answers: data.answers, rightAnswer: data.rightAnswer });
+            this.setState({ questionName: data.questionName, answers: data.answers, rightAnswer: data.rightAnswer });
         }).bind(this);
         xhr.send();
     }
@@ -32,22 +33,145 @@ class QuizPage extends React.Component {
         this.loadData();
     }
 
+
+    handleOptionChange(changeEvent) {
+        this.setState({
+            selectedOption: changeEvent.target.value
+        });
+    }
+
+    onRadioChange = (e) => {
+        this.setState({
+            color: e.target.value
+        });
+    }
+
     render() {
-        return <div className={s.quizTopicsPage}>
-            <div>{this.state.id} {this.state.questionName}</div>
-            <div>{this.state.answers[0]}</div>
-            <div>{this.state.answers[1]}</div>
-            <div>{this.state.answers[2]}</div>
-            <div>{this.state.answers[3]}</div>
-            <button>Next</button>
+        return <div className={s.quizPage}>
+
+            <div className={s.stats}>
+                <div className={s.quizTime}>
+                    <div className={s.remainingTime}>15</div>
+                </div>
+
+                <div className={s.scoreBoard}>
+                    <span className={s.scoreText}>Score:</span>
+                    <span className={s.correctAnswers}>0</span>
+                </div>
+            </div>
+
+            <div className={s.questionBox}>
+                <div className={s.currentQuestionNum}>1/20</div>
+                <div className={s.questionText}>Your question text</div>
+            </div>
+
+            <div className={s.optionBox}>
+
+                <button className={s.option}>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer1"
+                            checked={this.state.color === "answer1"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>answer1</span>
+                    </label>
+                </button>
+
+                <button className={s.option}>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer1"
+                            checked={this.state.color === "answer2"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>answer1</span>
+                    </label>
+                </button>
+
+                <button className={s.option}>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer1"
+                            checked={this.state.color === "answer3"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>answer1</span>
+                    </label>
+                </button>
+                <button className={s.option}>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer1"
+                            checked={this.state.color === "answer4"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>answer1</span>
+                    </label>
+                </button>
+
+            </div>
 
 
-            {/* <div>1 Вопрос 1 ывлоравылоарыволарывлоралывраылдрмдывщгарфдшырмфыдварылварфдлыварфлдывоа</div>
-            <div></div>
-            <div>ответ 2</div>
-            <div>ответ 3</div>
-            <div>ответ 4</div>
-            <button>next</button> */}
+            <div className={s.nextQuestion}>
+                <button className={s.previousButton} onClick={this.loadData}>Previous</button>
+                <button className={s.nextButton} onClick={this.loadData}>Next</button>
+            </div>
+            {/* <div className={s.question}>{this.state.questionName}</div>
+
+            <form className={s.form} onSubmit={this.onSubmit}>
+                <div>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer1"
+                            checked={this.state.color === "answer1"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>{this.state.answers[0]}</span>
+                    </label>
+                </div>
+                <div><label className={s.label}>
+                    <input className={s.input}
+                        type="radio"
+                        value="answer2"
+                        checked={this.state.color === "answer2"}
+                        onChange={this.onRadioChange}
+                    />
+                    <span className={s.checkmark}>{this.state.answers[1]}</span>
+                </label></div>
+                <div>
+                    <label className={s.label}>
+                    <input className={s.input}
+                        type="radio"
+                        value="answer3"
+                        checked={this.state.color === "answer3"}
+                        onChange={this.onRadioChange}
+                    />
+                    <span className={s.checkmark}>{this.state.answers[2]}</span>
+                </label>
+                </div>
+
+                <div>
+                    <label className={s.label}>
+                        <input className={s.input}
+                            type="radio"
+                            value="answer4"
+                            checked={this.state.color === "answer4"}
+                            onChange={this.onRadioChange}
+                        />
+                        <span className={s.checkmark}>{this.state.answers[3]}</span>
+                    </label>
+                </div>
+
+            </form>
+
+            <button className={s.nextButton} onClick={this.loadData}>Next</button> */}
+
         </div>
     }
 }
