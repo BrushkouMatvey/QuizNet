@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Configuration;
+using System.Diagnostics;
+
 namespace QuizNet
 {
     public class Program

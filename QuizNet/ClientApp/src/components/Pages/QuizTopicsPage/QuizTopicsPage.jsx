@@ -28,10 +28,9 @@ class QuizTopicsPage extends React.Component {
         let tes = 'История';
         let topics = this.state.topics.map(t => <TopicItem text={t} link={`${this.props.apiUrl}/${t}`}/>)
         return <div className={s.quizTopicsPage}>
-            <TopicItem text="history" link={`${this.props.apiUrl}/history`}/>
-            {/* {
+            {
                 topics
-            } */}
+            }
         </div>
     }
 }
