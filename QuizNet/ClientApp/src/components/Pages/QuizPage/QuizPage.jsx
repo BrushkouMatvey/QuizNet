@@ -121,59 +121,7 @@ class QuizPage extends React.Component {
                 <button className={s.previousButton} onClick={this.loadData}>Previous</button>
                 <button className={s.nextButton} onClick={this.loadData}>Next</button>
             </div>
-            {/* <div className={s.question}>{this.state.questionName}</div>
 
-            <form className={s.form} onSubmit={this.onSubmit}>
-                <div>
-                    <label className={s.label}>
-                        <input className={s.input}
-                            type="radio"
-                            value="answer1"
-                            checked={this.state.color === "answer1"}
-                            onChange={this.onRadioChange}
-                        />
-                        <span className={s.checkmark}>{this.state.answers[0]}</span>
-                    </label>
-                </div>
-                <div><label className={s.label}>
-                    <input className={s.input}
-                        type="radio"
-                        value="answer2"
-                        checked={this.state.color === "answer2"}
-                        onChange={this.onRadioChange}
-                    />
-                    <span className={s.checkmark}>{this.state.answers[1]}</span>
-                </label></div>
-                <div>
-                    <label className={s.label}>
-                    <input className={s.input}
-                        type="radio"
-                        value="answer3"
-                        checked={this.state.color === "answer3"}
-                        onChange={this.onRadioChange}
-                    />
-                    <span className={s.checkmark}>{this.state.answers[2]}</span>
-                </label>
-                </div>
-
-                <div>
-                    <label className={s.label}>
-                        <input className={s.input}
-                            type="radio"
-                            value="answer4"
-                            checked={this.state.color === "answer4"}
-                            onChange={this.onRadioChange}
-                        />
-                        <span className={s.checkmark}>{this.state.answers[3]}</span>
-                    </label>
-                </div>
-
-            </form>
-
-<<<<<<< HEAD
-            <button className={s.nextButton} onClick={this.loadData}>Next</button>
-=======
-            <button className={s.nextButton} onClick={this.loadData}>Next</button> */}
         </div>
     }
 }
