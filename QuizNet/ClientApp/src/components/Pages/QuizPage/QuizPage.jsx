@@ -49,7 +49,6 @@ class QuizPage extends React.Component {
     render() {
         return <div className={s.quizPage}>
 
-            <Stats/>
             <div className={s.stats}>
                 <div className={s.quizTime}>
                     <div className={s.remainingTime}>15</div>
