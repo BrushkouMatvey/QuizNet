@@ -67,7 +67,7 @@
 ### 1.2 Выбор стратегии развёртывания
 
 Нераспределенное развертывание по шаблону Клиент-Сервер
-![razv]([./razvert.jpg](https://github.com/BrushkouMatvey/QuizNet/blob/master/razvert.JPG))
+![razv](./razvert.jpg)
 
 <a name="technology_selection"> 
 
