@@ -41,7 +41,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;1.4.4. [Качества взаимодействия с пользователем](#quality_of_user_interaction)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.4.4.1. [Удобство и простота использования](#usability)  
 1.5. [Пути реализации сквозной функциональности](#crosscutting_concerns)   
-1.6.[Архитектура "To Be"](#to_be_arch) 
+1.6.[Архитектура "To Be"](#assumptions_and_dependencies) 
 
 2. [Часть 2 - Анализ архитектуры](#architecture_analysis)   
 2.1. [Архитектура "As is"](#as_is_arch)  
@@ -67,7 +67,7 @@
 ### 1.2 Выбор стратегии развёртывания
 
 Нераспределенное развертывание по шаблону Клиент-Сервер
-![razv]([./razvert.jpg](https://github.com/BrushkouMatvey/QuizNet/blob/master/razvert.JPG))
+![razv](./razvert.jpg)
 
 <a name="technology_selection"> 
 
