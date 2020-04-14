@@ -67,7 +67,7 @@
 ### 1.2 Выбор стратегии развёртывания
 
 Нераспределенное развертывание по шаблону Клиент-Сервер
-![razv](blob/master/razvert.JPG)
+![razv](razvert.JPG)
 
 <a name="technology_selection"> 
 
