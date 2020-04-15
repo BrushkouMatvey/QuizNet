@@ -45,7 +45,7 @@
 ### 1.2 Выбор стратегии развёртывания
 
 Нераспределенное развертывание по шаблону Клиент-Сервер
-![razv](razvert.JPG)
+![razv](img/razvert.JPG)
 
 <a name="technology_selection"> 
 
@@ -138,7 +138,7 @@
 <a name="to_be_arch">
 
 ### 1.6. Архитектура "To Be"
-![to_be_arch](WebAppArchitecture.jpg)
+![to_be_arch](img/WebAppArchitecture.jpg)
 <a name="architecture_analysis">
 
 ## Часть 2 - Анализ архитектуры  
@@ -146,7 +146,7 @@
 
 ### 2.1. Архитектура "As is"  
 
-![as_is_arch](ClassDiagram.jpg)
+![as_is_arch](img/ClassDiagram.jpg)
 
 <a name="comparison_and_refactoring">
 
