@@ -19,6 +19,7 @@
 
 ## Ссылки
 - Trello : https://trello.com/doracles 
+- Отчет по первому спринту представлен [здесь](https://github.com/BrushkouMatvey/QuizNet/blob/master/Sprints/first_sprint.md)
   
 
 ## Исследование архитектурного решения
