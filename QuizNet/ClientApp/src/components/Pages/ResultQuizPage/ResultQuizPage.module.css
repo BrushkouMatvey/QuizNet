@@ -1,0 +1,48 @@
+﻿.resultQuizBox {
+    font-size: 20px;
+    background-color: #181818;
+    border-radius: 20px;
+    border: none;
+    padding: 70px;
+    font-family: 'Concert One', cursive;
+    color: #ffffff;
+    text-align: center;
+}
+
+.header{
+    margin-bottom: 40px;
+}
+
+.btn{
+    background-color: #1ED760;
+    border: none;
+    border-radius: 13px;
+    width: 20%;
+    height: 60px;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+    transition: color 0.3s ease-out;
+}
+
+.btn:hover{
+    color: #ffffff;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.resultQuizBox h1{
+    font-size: 60px;
+}
+
+.resultQuizBox h3{
+    font-size: 30px;
+}
+
+.resultQuizBox h3 span{
+    font-size: 35px;
+}
+

@@ -28,35 +28,48 @@
 .nextButton {
     background-color: #1ED760;
     border: none;
-    border-radius: 10px;
-    width: 15%;
+    border-radius: 13px;
+    min-width: 15%;
     height: 50px;
     font-size: 28px;
     margin-top: 20px;
+    display:none;
+    /*visibility: hidden;*/
+}
+.submitButton {
+    background-color: #4F1ED7;
+    border: none;
+    border-radius: 13px;
+    min-width: 15%;
+    height: 50px;
+    font-size: 28px;
+    margin-top: 20px;
+    display: none;
 }
 
-    .nextButton:hover, .previousButton:hover {
-        color: #ffffff;
-    }
+.nextButton:hover, .previousButton:hover, .submitButton:hover {
+    color: #ffffff;
+}
 
-    .nextButton:focus, .previousButton:focus, .quizPage .optionBox .option:focus {
+    .nextButton:focus, .previousButton:focus, .submitButton:focus, .quizPage .optionBox .option:focus {
         outline: none;
     }
 
+
+.show {
+    display: block;
+    animation: fadeInRight 1s ease;
+}
 .previousButton {
     background-color: #4F1ED7;
     border: none;
-    border-radius: 10px;
-    width: 15%;
+    border-radius: 13px;
+    min-width: 15%;
     height: 50px;
     font-size: 28px;
     margin-top: 20px;
+    visibility: hidden;
 }
-
-
-
-
-
 
 
 .questionBox {
@@ -106,6 +119,10 @@
         max-width: calc(50% - 20px);
         text-align: left;
     }
+.lessTime {
+    color: #FF673E;
+    border-color: #FF673E;
+}
 
         .quizPage .stats .quizTime .remainingTime {
             height: 60px;
@@ -116,6 +133,7 @@
             border-radius: 50%;
             color: #ffffff;
         }
+            
 
 
     .quizPage .stats .scoreBoard {
@@ -137,6 +155,7 @@
     .quizPage .optionBox .option {
         background-color: #181818;
         flex-basis: calc(50% - 20px);
+        min-height: 30px;
         max-width: calc(50% - 20px);
         margin-top: 20px;
         padding-top: 5px;
@@ -146,4 +165,98 @@
         border: 3px solid #ffffff;
         border-radius: 20px;
         color: #ffffff;
+        position:relative;
     }
+
+        .quizPage .optionBox .correct {
+            background-color: #02AD64;
+            color: #111111;
+            border-color: #02AD64;
+            animation: pulse 0.5s linear;
+        }
+
+        @keyframes pulse{
+            0%{
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .quizPage .optionBox .wrong {
+            background-color: #FF673E;
+            color: #111111;
+            border-color: #FF673E;
+            animation: snake 1s linear;
+        }
+        .quizPage .optionBox .alreadyAnswered {
+            pointer-events: none;
+        }
+        .quizPage .optionBox .option.correct::before {
+            content: '';
+            position: absolute;
+            background-color: #02AD64;
+            height: 26px;
+            width: 26px;
+            right: 7px;
+            top: 5px;
+            background-image: url("img/correct.png");
+            background-size: 20px;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 12px;
+            animation: fadeInRight .5s ease;
+        }
+            .quizPage .optionBox .option.wrong::before {
+                content: '';
+                position: absolute;
+                background-color: #FF673E;
+                height: 26px;
+                width: 26px;
+                right: 7px;
+                top: 5px;
+                background-image: url("img/wrong.png");
+                background-size: 20px;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 12px;
+                animation: fadeInRight .5s ease;
+            }
+        @keyframes snake{
+            0%, 30%, 50%{
+                transform: translateX(10px);
+            }
+            20%,40%{
+                transform: translateX(-10px);
+            }
+            60% {
+                transform: translateX(-7px);
+            }
+            70%{
+                transform: translateX(7px);
+            }
+            80% {
+                transform: translateX(-4px);
+            }
+            90% {
+                transform: translateX(4px);
+            }
+            100% {
+                transform: translateX(0px);
+            }
+        }
+
+        @keyframes fadeInRight{
+            0%{
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            100% {
+                opacity:1;
+                transform: translateX(0px);
+            }
+        }
