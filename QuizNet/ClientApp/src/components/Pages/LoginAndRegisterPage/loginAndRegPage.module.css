@@ -62,7 +62,7 @@ body,
 }
 
 .innerContainer.show {
-    visibility: visible;
+    /*visibility: visible;*/
 }
 
 /* //Header */
