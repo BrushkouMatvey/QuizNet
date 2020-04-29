@@ -7,9 +7,16 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using AspNetCore.Identity.Mongo;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 using QuizNet.Models;
+using QuizNet.Models.Identity;
 using QuizNet.Services;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+using System;
 
 namespace QuizNet
 {
@@ -31,6 +38,44 @@ namespace QuizNet
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/build";
+            });
+
+            // Configure Identity MongoDB
+            services.AddIdentityMongoDbProvider<User, Role>(identityOptions =>
+            {
+                identityOptions.Password.RequiredLength = 6;
+                identityOptions.Password.RequireLowercase = true;
+                identityOptions.Password.RequireUppercase = true;
+                identityOptions.Password.RequireNonAlphanumeric = true;
+                identityOptions.Password.RequireDigit = true;
+            }, mongoIdentityOptions => {
+                mongoIdentityOptions.ConnectionString = Configuration.GetSection("IdentityDatabaseSettings")["ConnectionString"];
+            });
+
+            // Add Jwt Authentication
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // => remove default claims
+            services.AddAuthentication(options =>
+            {
+                //Set default Authentication Schema as Bearer
+                options.DefaultAuthenticateScheme =
+                           JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme =
+                           JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme =
+                           JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+                cfg.TokenValidationParameters =
+                       new TokenValidationParameters
+                       {
+                           ValidIssuer = Configuration["JwtIssuer"],
+                           ValidAudience = Configuration["JwtIssuer"],
+                           IssuerSigningKey =
+                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
+                           ClockSkew = TimeSpan.Zero // remove delay of token when expire
+                       };
             });
 
             //Database configuration
