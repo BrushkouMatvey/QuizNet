@@ -17,6 +17,7 @@ using QuizNet.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace QuizNet
 {
@@ -76,6 +77,19 @@ namespace QuizNet
                         new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtKey"])),
                            ClockSkew = TimeSpan.Zero // remove delay of token when expire
                        };
+            });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/";
+                options.Cookie.Name = "cookie_log";
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(180);
+                options.LoginPath = "/api/user/login";
+                // ReturnUrlParameter requires 
+                //using Microsoft.AspNetCore.Authentication.Cookies;
+                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+                options.SlidingExpiration = true;
             });
 
             //Database configuration
