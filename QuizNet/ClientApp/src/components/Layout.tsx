@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Container } from 'reactstrap';
-import NavMenu from './NavMenu';
+import NavMenuContainer from './NavMenuContainer';
 
 export default (props: { children?: React.ReactNode }) => (
     <React.Fragment>
-        <NavMenu/>
+        <NavMenuContainer/>
         <Container>
             {props.children}
         </Container>
