@@ -37,7 +37,7 @@ namespace QuizNet.Controllers
             var user = await _userManager.GetUserAsync(User);
             var userData = new UserDataResponse
             {
-                Name = user.UserName
+                login = user.UserName
             };
             return Ok(userData);
         }

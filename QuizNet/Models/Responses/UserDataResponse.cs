@@ -7,7 +7,13 @@ namespace QuizNet.Models.Responses
 {
     public class UserDataResponse
     {
-        public string Name { get; set; }
+        public int resultCode { get; set; }
+        public List<String> messages { get; set; }
+
+        public int id { get; set; }
+        public string email { get; set; }
+        public string login { get; set; }
+        //public string Name { get; set; }
 
         //public string LastName { get; set; }
 
