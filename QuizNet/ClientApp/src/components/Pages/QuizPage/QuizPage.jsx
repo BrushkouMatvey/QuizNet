@@ -4,7 +4,7 @@ import { Button } from '../Button/Button';
 import s from './QuizPage.module.css'
 import Option from './Option/Option';
 import { NavLink } from 'react-router-dom';
-
+import { Route } from 'react-router';
 
 
 
@@ -32,11 +32,13 @@ class QuizPage extends React.Component {
         };
         this.loadData = this.loadData.bind(this);
         this.fetchUsers = this.fetchUsers.bind(this);
+        //this.submitButtonClick = this.submitButtonClick.bind(this);
     }
 
     firstloadData(e) {
 
         var xhr = new XMLHttpRequest();
+        console.log(this.props.match.url);
         xhr.open("get", this.props.match.url, true);
         xhr.onload = (() => {
             var data = JSON.parse(xhr.responseText);
@@ -56,16 +58,13 @@ class QuizPage extends React.Component {
                     let classes = `${s.remainingTime}`;
                     let els = document.getElementsByClassName(`${s.remainingTime}`);
                     console.log(els);
-
-                    for (let i = 0; i < els.length; i++) {
-                        console.log(els[i]);
-                        els[i].classList.add(`${s.lessTime}`);
-                    }
+                    els[0].classList.add(`${s.lessTime}`);
                 }
                 if (timeLimit == 0) {
-                    clearInterval(this.state.interval);
+                    clearInterval(this.state.interval);  
+                    this.timeIsUp()
                 }
-                console.log(timeLimit);
+                //console.log(timeLimit);
                 this.setState({ remainingTime: timeLimit })
             }, 1000) }) 
     }
@@ -75,6 +74,9 @@ class QuizPage extends React.Component {
     }
 
     loadData = (e) => {
+        let els = document.getElementsByClassName(`${s.remainingTime}`);
+        console.log(els);
+        els[0].classList.remove(`${s.lessTime}`);
         this.startTimer();
         this.hideNextQuestionBtn();
         this.enableOptions();
@@ -90,6 +92,7 @@ class QuizPage extends React.Component {
             this.setState({ questionName: data.questionName, answers: data.answers, rightAnswer: data.rightAnswer, isCorrect: false });
         }).bind(this);
         xhr.send();
+
         
     }
     enableOptions = (e) => {
@@ -113,6 +116,16 @@ class QuizPage extends React.Component {
             console.log(wrong[i]);
             wrong[i].classList.remove(`${s.wrong}`);
         }
+
+        let corShow = document.getElementsByClassName(`${s.showCorrect}`);
+        console.log(corShow);
+        for (let i = 0; i < corShow.length; i++) {
+            console.log(corShow[i]);
+            corShow[i].classList.remove(`${s.showCorrect}`);
+        }
+
+        let timesUpElem = document.getElementsByClassName(`${s.timesUp}`);
+        timesUpElem[0].classList.remove(`${s.show}`);
     };
 
     disableOptions = (e) => {
@@ -148,6 +161,18 @@ class QuizPage extends React.Component {
         console.log(els);
     };
 
+    timeIsUp(e) {
+        let timesUpElem = document.getElementsByClassName(`${s.timesUp}`);
+        timesUpElem[0].classList.add(`${s.show}`);        
+        let els = document.getElementsByClassName(`${s.option}`);
+        for (let i = 0; i < els.length; i++) {
+            if (els[i].id == this.state.rightAnswer)
+                els[i].classList.add(`${s.showCorrect}`);
+        } 
+        this.disableOptions();
+        this.showNextQuestionBtn();
+    }
+
     fetchUsers = (e) => {
 
         console.log(e.target.id);
@@ -160,8 +185,12 @@ class QuizPage extends React.Component {
         else
         {
             e.target.classList.add(`${s.wrong}`);
-            this.setState({ wrongAnswers: this.state.wrongAnswers = 1 })
-            console.log("Wrong answers" + this.state.wrongAnswers)
+            this.setState({ wrongAnswers: this.state.wrongAnswers = 1 });
+            let els = document.getElementsByClassName(`${s.option}`);
+            for (let i = 0; i < els.length; i++) {
+                if (els[i].id == this.state.rightAnswer)
+                    els[i].classList.add(`${s.showCorrect}`);
+            }
         }
         this.disableOptions(e);
         if (this.state.questionIndex < 20)
@@ -174,13 +203,16 @@ class QuizPage extends React.Component {
         this.startTimer();
         this.firstloadData();
     }
-    
-    
+
+
     render() {
+
+
         return <div className={s.quizPage}>
             <div className={s.stats}>
                 <div className={s.quizTime}> 
                     <div className={s.remainingTime}>{this.state.remainingTime} </div>
+                    <div className={s.timesUp}>Time's up </div>
                 </div>
 
                 <div className={s.scoreBoard}>
@@ -226,12 +258,14 @@ class QuizPage extends React.Component {
 
             <div className={s.nextQuestion}>
                 <button className={s.previousButton} id="0" onClick={this.loadData}>Previous</button>
-                {this.state.questionIndex < 20 && < button className={`${s.nextButton}`}id="1" onClick={this.loadData}>Next</button>}
-                {this.state.questionIndex >= 20 && <NavLink to={`${window.location.pathname}/resultPage`}>< button className={s.submitButton} id="1">Submit</button></NavLink>}
+                {this.state.questionIndex < 20 && < button className={`${s.nextButton}`} id="1" onClick={this.loadData}>Next</button>}
+                {this.state.questionIndex >= 20 && < button onClick={this.submitButtonClick} className={s.submitButton} id="1">Submit</button>}
 
             </div>
+            </div>
+            
 
-        </div>
+       
     }
 }
 

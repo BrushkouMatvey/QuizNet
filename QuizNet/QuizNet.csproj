@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\components\Pages\QuizPage\img\" />
+    <Folder Include="ClientApp\src\components\Pages\ResultQuizPage\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

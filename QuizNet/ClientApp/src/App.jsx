@@ -10,7 +10,6 @@ import QuizPage from './components/Pages/QuizPage/QuizPage.jsx';
 import QuizTopicsPage from './components/Pages/QuizTopicsPage/QuizTopicsPage';
 import s from './custom.module.css'
 import loginAndRegPage from './components/Pages/LoginAndRegisterPage/loginAndRegPage';
-import ResultQuizPage from './components/Pages/ResultQuizPage/ResultQuizPage';
 
 const App = () => {
     return (
@@ -20,7 +19,6 @@ const App = () => {
                 <Route exact path='/login' component={loginAndRegPage}/>
                 <Route path='/withFriends' component={GameWithFriendsPage} />
                 <Route exact path='/api/questions/:name' component={QuizPage} />
-                <Route exact path='/api/questions/:name/resultPage' component={ResultQuizPage} />
                 <Route exact path='/api/questions' render={() => <QuizTopicsPage apiUrl="/api/questions" />} />     
             </Layout>
         </div>

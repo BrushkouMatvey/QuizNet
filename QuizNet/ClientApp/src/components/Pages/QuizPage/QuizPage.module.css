@@ -10,6 +10,10 @@
     font-family: 'Concert One', cursive;
 }
 
+.quizPage .nonShow{
+    display:none;
+}
+
 .question {
     font-size: 30px;
     margin: 30px;
@@ -112,16 +116,35 @@
     text-transform: uppercase;
 }
 
+.quizPage .stats .quizTime .timesUp {
+    color: #FF673E;
+    font-weight: 500;
+    display: none;
+    margin-left:20px;
+}
 
+.quizPage .stats .quizTime .timesUp.show {
+    display: inline-block;
+    animation: fadeInOut 1s linear infinite;
+}
+@keyframes fadeInOut{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity:1
+    }
+    100% {
+        opacity: 0
+    }
+}
 .quizPage .stats .quizTime {
     flex-basis: calc(50% - 20px);
     max-width: calc(50% - 20px);
     text-align: left;
 }
-.lessTime {
-    color: #FF673E;
-    border-color: #FF673E;
-}
+
+
 
 .quizPage .stats .quizTime .remainingTime {
     height: 60px;
@@ -131,8 +154,14 @@
     line-height: 56px;
     border-radius: 50%;
     color: #ffffff;
+    display:inline-block;
 }
-            
+
+.quizPage .stats .quizTime .remainingTime.lessTime {
+    color: #FF673E;
+    border-color: #FF673E;
+}     
+  
 
 
 .quizPage .stats .scoreBoard {
@@ -174,7 +203,16 @@
     animation: pulse 0.5s linear;
 }
 
-@keyframes pulse{
+.quizPage .optionBox .showCorrect {
+    background-color: #02AD64;
+    border-color: #02AD64;
+    color: #ffffff;
+    border-color: #02AD64;
+    transition: all .5s ease;
+}
+
+
+@keyframes pulse {
     0%{
         transform: scale(1);
     }
@@ -259,3 +297,57 @@
         transform: translateX(0px);
     }
 }
+
+
+.resultQuizBox {
+    font-size: 20px;
+    background-color: #181818;
+    border-radius: 20px;
+    border: none;
+    padding: 70px;
+    font-family: 'Concert One', cursive;
+    color: #ffffff;
+    text-align: center;
+    display:none;
+}
+.resultQuizBox.show {
+    display: block;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: #1ED760;
+    border: none;
+    border-radius: 13px;
+    width: 20%;
+    height: 60px;
+    font-size: 28px;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+    transition: color 0.3s ease-out;
+}
+
+    .btn:hover {
+        color: #ffffff;
+    }
+
+    .btn:focus {
+        outline: none;
+    }
+
+.resultQuizBox h1 {
+    font-size: 60px;
+}
+
+.resultQuizBox h3 {
+    font-size: 30px;
+}
+
+    .resultQuizBox h3 span {
+        font-size: 35px;
+    }
+

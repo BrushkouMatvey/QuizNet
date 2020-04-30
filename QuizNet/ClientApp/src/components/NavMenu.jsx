@@ -25,13 +25,11 @@ export default class NavMenu extends React.Component/*<{}, { isOpen: boolean }> 
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
                                 </NavItem>
-                                <div className="loginBlock">
-                                    {this.props.isAuth ? this.props.login
-                                        : <NavItem >
-                                            <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
-                                        </NavItem>} 
-                                    
-                                </div>
+                                
+                                <NavItem >
+                                    <NavLink tag={Link} className="text-dark" to="/login">Login</NavLink>
+                                </NavItem>
+                                
                                 <NavItem > 
                                     <NavLink tag={Link} className="text-dark" to="/profile">Profile</NavLink>
                                 </NavItem>
